@@ -16,7 +16,7 @@ export default function TabLayout() {
         headerTitle: () => (
           <View style={styles.headerTitleContainer}>
             <Image source={LOGO} style={styles.headerLogo} />
-            <Text style={styles.headerTitle} >JAH Informatique</Text>
+            <Text style={styles.headerTitle} >JAH INFORMATIQUE </Text>
           </View>
         ),
       }}>
@@ -31,7 +31,7 @@ export default function TabLayout() {
         name="services"
         options={{
           title: 'Services',
-          tabBarIcon: ({ color, size }) => <Laptop2 size={size} color={color} />,
+          tabBarIcon: ({ color, size }) => <Laptop size={size} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
   },
   tabBarLabel: {
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'TimesNewRomanItalic',
     fontSize: 12,
   },
   header: {
@@ -88,9 +88,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   headerTitle: {
-    fontFamily: 'Poppins-Bold',
-    color: '#FE5E20',
-    fontSize: 20,
+    fontFamily: 'TimesNewRomanItalic',
+    color: '#000',
+    fontSize: 16,
     letterSpacing: 1,
   },
 }); 

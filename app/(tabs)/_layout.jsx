@@ -1,6 +1,8 @@
 import { Tabs } from 'expo-router';
 import { Chrome as Home, Laptop, Phone, Settings, PenTool as Tool } from 'lucide-react-native';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View, Image, Text } from 'react-native';
+import LOGO from '../../assets/images/LOGO.jpg';
+
 
 export default function TabLayout() {
   return (
@@ -11,13 +13,17 @@ export default function TabLayout() {
         tabBarInactiveTintColor: '#666666',
         tabBarLabelStyle: styles.tabBarLabel,
         headerStyle: styles.header,
-        headerTitleStyle: styles.headerTitle,
+        headerTitle: () => (
+          <View style={styles.headerTitleContainer}>
+            <Image source={LOGO} style={styles.headerLogo} />
+            <Text style={styles.headerTitle} >JAH Informatique</Text>
+          </View>
+        ),
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Accueil',
-          headerTitle: 'JAH Informatique plus',
           tabBarIcon: ({ color, size }) => <Home size={size} color={color} />,
         }}
       />
@@ -53,18 +59,32 @@ const styles = StyleSheet.create({
     borderTopColor: '#e0e0e0',
     height: 60,
     paddingBottom: 5,
+    width: '100%',
   },
   tabBarLabel: {
     fontFamily: 'Poppins-Regular',
     fontSize: 12,
   },
   header: {
-    
     backgroundColor: '#ffffff',
+    
+  },
+  headerTitleContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    backgroundColor: '#ffffff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headerLogo: {
+    width: 30,
+    height: 30,
+    marginRight: 10,
   },
   headerTitle: {
     fontFamily: 'Poppins-Bold',
-    color: 'yellow',
+    color: '#FE5E20',
     fontSize: 20,
+    letterSpacing: 1,
   },
 }); 

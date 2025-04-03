@@ -1,20 +1,14 @@
-import { View, Text, ScrollView, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { ChevronRight } from 'lucide-react-native';
-import image3 from '../../assets/images/image3.jpg'
+import ImageSlider from '../components/ImageSlider';
 
 export default function HomeScreen() {
   return (
     <ScrollView style={styles.container}>
-      {/* <Image
-        source={{ uri: 'https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=800&auto=format&fit=crop' }}
-        style={styles.heroImage}
-      /> */}
-      <Image
-        source={image3}
-        style={styles.heroImage}
-      />
+      <ImageSlider />
+      
       <View style={styles.content}>
-        <Text style={styles.title}> </Text>
+        <Text style={styles.title}>Bienvenue chez JAH Informatique</Text>
         <Text style={styles.subtitle}>Votre partenaire informatique de confiance</Text>
         
         <View style={styles.servicesGrid}>
@@ -58,11 +52,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffffff',
   },
-  heroImage: {
-    width: '100%',
-    height: 200,
-    resizeMode: 'cover',
-  },
   content: {
     padding: 20,
   },
@@ -70,11 +59,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
     fontSize: 24,
     color: '#333333',
-    textAlign: 'center',
-    letterSpacing: 1,
-    textShadowColor: 'rgba(0, 0, 0, 0.5)',
-    textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 4,
     marginBottom: 8,
   },
   subtitle: {
@@ -120,12 +104,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666666',
     lineHeight: 24,
-  },
-  sliderContainer: {
-    height: 200,
-    marginBottom: 24,
-  },
-  slider: {
-    flex: 1,
   },
 }); 

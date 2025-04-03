@@ -14,7 +14,7 @@ export default function HomeScreen() {
         style={styles.heroImage}
       />
       <View style={styles.content}>
-        <Text style={styles.title}>Bienvenue chez JAH Informatique</Text>
+        <Text style={styles.title}> </Text>
         <Text style={styles.subtitle}>Votre partenaire informatique de confiance</Text>
         
         <View style={styles.servicesGrid}>

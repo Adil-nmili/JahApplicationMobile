@@ -14,28 +14,16 @@ export default function HomeScreen() {
         style={styles.heroImage}
       />
       <View style={styles.content}>
-        <Text style={styles.title}> </Text>
+        <Text style={styles.title}>Bienvenue chez JAH Informatique</Text>
         <Text style={styles.subtitle}>Votre partenaire informatique de confiance</Text>
         
-        <View style={styles.servicesGrid}>
-          <TouchableOpacity style={styles.serviceCard}>
-            <Text style={styles.serviceTitle}>Réparation PC</Text>
-            <ChevronRight size={20} color="#0066cc" />
-          </TouchableOpacity>
-          
-          <TouchableOpacity style={styles.serviceCard}>
-            <Text style={styles.serviceTitle}>Maintenance</Text>
-            <ChevronRight size={20} color="#0066cc" />
-          </TouchableOpacity>
-          
-          <TouchableOpacity style={styles.serviceCard}>
-            <Text style={styles.serviceTitle}>Vente Matériel</Text>
-            <ChevronRight size={20} color="#0066cc" />
-          </TouchableOpacity>
-          
-          <TouchableOpacity style={styles.serviceCard}>
-            <Text style={styles.serviceTitle}>Formation</Text>
-            <ChevronRight size={20} color="#0066cc" />
+        <View style={styles.moreCard}>
+          <Text style={styles.moreTitle}>JAH Formation Professionnelle</Text>
+          <Text style={styles.moreText}>
+            Découvrez nos formations en informatique, gestion, stylisme, pâtisserie, et bien plus encore !
+          </Text>
+          <TouchableOpacity style={styles.moreButton}>
+            <Text style={styles.moreButtonText}>plus</Text>
           </TouchableOpacity>
         </View>
 
@@ -128,4 +116,34 @@ const styles = StyleSheet.create({
   slider: {
     flex: 1,
   },
-}); 
+  moreCard: {
+    backgroundColor: '#e3f2fd',
+    padding: 20,
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+  moreTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#004080',
+    marginBottom: 10,
+  },
+  moreText: {
+    fontSize: 14,
+    color: '#333333',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  moreButton: {
+    backgroundColor: '#0066cc',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+  },
+  moreButtonText: {
+    color: '#ffffff',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+});
+

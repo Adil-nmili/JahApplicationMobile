@@ -40,7 +40,7 @@ export default function ObjectifCard() {
       {
         objectif.map((item) => (
           <TouchableOpacity key={item.id} style={[styles.objectifCard, hoveredCard === item.id && styles.objectifCardHover]} onPress={() => setHoveredCard(item.id)} onMouseEnter={() => setHoveredCard(item.id)} onMouseLeave={() => setHoveredCard(null)}>
-            <Ionicons name={item.icon} size={40} style={styles.objectifCardIcon}/>
+            <Ionicons name={item.icon} size={40} style={[styles.objectifCardIcon, hoveredCard === item.id && styles.objectifCardIconHover]}/>
             <Text style={styles.objectifCardText}>{item.number}</Text>
             <Text style={styles.objectifCardText}>{item.title}</Text>
           </TouchableOpacity>
@@ -86,5 +86,8 @@ const styles = StyleSheet.create({
   },
   objectifCardHover: {
     backgroundColor: '#0EB582',
+  },
+  objectifCardIconHover: {
+    color: '#fff',
   },
 });

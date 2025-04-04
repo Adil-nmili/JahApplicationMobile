@@ -1,13 +1,14 @@
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
-import { ChevronRight } from 'lucide-react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import ImageSlider from '../components/ImageSlider';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import  image3  from '../../assets/images/image3.jpg';
 import SectionTitle from '../components/SectionTitle';
 import NosDiplomes from '../components/NosDiplomes';
-import { Image } from 'react-native';
 import ObjectifCard from '../components/ObjectifCard';
+import Caracteres from '../components/Caracteres';
+import Partenairs from '../components/Partenairs';
+import Footer from '../components/Footer';
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -63,7 +64,16 @@ export default function HomeScreen() {
           <Image source={image3} resizeMode="contain" alt='objectif' style={styles.objectifImage} />
           <ObjectifCard />
         </View>
+        <View style={styles.moreCard}>
+          <SectionTitle title=" CE QUI NOUS CARACTÉRISE ?" />
+          <Caracteres />
+        </View>
+        <View style={styles.moreCard}>
+          <SectionTitle title="NOS PARTENAIRES " />
+          <Partenairs />
+        </View>
       </View>
+      <Footer />
     </ScrollView>
   );
 }
@@ -98,7 +108,6 @@ const styles = StyleSheet.create({
   },
   moreCard: {
     padding: 20,
-    borderRadius: 12,
     alignItems: 'center',
   },
   moreTitle: {
@@ -138,6 +147,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200,
     borderRadius: 12,
+    marginBottom: 20,
   },
 });
 

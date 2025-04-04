@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-react-native';
 import ImageSlider from '../components/ImageSlider';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { image3 } from '../../assets/images/image3.jpg';
+import  image3  from '../../assets/images/image3.jpg';
 import SectionTitle from '../components/SectionTitle';
 import NosDiplomes from '../components/NosDiplomes';
 import { Image } from 'react-native';

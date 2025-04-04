@@ -3,69 +3,65 @@ import { ChevronRight } from 'lucide-react-native';
 import ImageSlider from '../components/ImageSlider';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { Ionicons } from '@expo/vector-icons'; // Import des icônes
+import { image3 } from '../../assets/images/image3.jpg';
+import SectionTitle from '../components/SectionTitle';
+import NosDiplomes from '../components/NosDiplomes';
+import { Image } from 'react-native';
+import ObjectifCard from '../components/ObjectifCard';
 
 export default function HomeScreen() {
   const router = useRouter();
+  const [pressedCard, setPressedCard] = useState(null);
 
-  // Tableau des diplômes
-  const [diplomes, setDiplomes] = useState([
-    { id: 1, titre: "Master Professionnel Européen (FEDE)", duree: "2 ans", icone: "calculator" },
-    { id: 2, titre: "Licence Professionnelle Européenne (FEDE)", duree: "1 an", icone: "code-slash" },
-    { id: 3, titre: "Technicien Spécialisé en Gestion d’Entreprise", duree: "2 ans", icone: "server" },
-    { id: 4, titre: "Technicien en Gestion Informatisée", duree: "1 an", icone: "laptop" },
-  ]);
+  const handlePressIn = (id) => {
+    setPressedCard(id);
+  };
 
-  const [hoveredCard, setHoveredCard] = useState(null); // Gère l'effet hover
-
-  const navigateToFormation = (diplome) => {
-    router.push(`/formation/${diplome.id}`);
+  const handlePressOut = () => {
+    setPressedCard(null);
   };
 
   return (
     <ScrollView style={styles.container}>
       <ImageSlider />
-
       <View style={styles.content}>
-        <View style={styles.titleContainer}>
-          <ChevronRight size={20} color="#000000" style={styles.titleIcon} />
-          <Text style={styles.title}> Bienvenue chez JAH Informatique</Text>
-        </View>
-        <Text style={styles.subtitle}>Votre partenaire informatique de confiance</Text>
-
         {/* NOS FORMATIONS */}
         <View style={styles.moreCard}>
-          <Text style={styles.moreTitle}>JAH Formation Professionnelle</Text>
+          <SectionTitle title="JAH Formation Professionnelle" />
           <Text style={styles.moreText}>
             Découvrez nos formations en informatique, gestion, stylisme, pâtisserie, et bien plus encore !
           </Text>
-          <TouchableOpacity style={styles.moreButton} onPress={() => router.push('/aproposnous')}>
-            <Text style={styles.moreButtonText}>Plus</Text>
+          <TouchableOpacity 
+            style={[
+              styles.moreButton,
+              pressedCard === 'formations' && styles.moreButtonPressed
+            ]} 
+            onPress={() => router.push('/aproposnous')}
+            onPressIn={() => handlePressIn('formations')}
+            onPressOut={handlePressOut}
+            onHoverIn={() => handlePressIn('formations')}
+            onHoverOut={handlePressOut}
+          >
+            <Text style={[
+              styles.moreButtonText,
+              pressedCard === 'formations' && styles.moreButtonTextPressed
+            ]}>Plus</Text>
           </TouchableOpacity>
         </View>
 
-        {/* NOS DIPLÔMES */}
+        {/* DIPLÔMES composant */}
         <View style={styles.moreCard}>
-          <Text style={styles.moreTitle}>NOS DIPLÔMES</Text>
-          <View style={styles.CardInform}>
-            {diplomes.map((diplome) => (
-              <TouchableOpacity
-                key={diplome.id}
-                style={[
-                  styles.diplomeCard,
-                  hoveredCard === diplome.id && styles.diplomeCardHover,
-                ]}
-                onPress={() => navigateToFormation(diplome)}
-                onMouseEnter={() => setHoveredCard(diplome.id)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
-                {/* Icône ajoutée à chaque carte */}
-                <Ionicons name={diplome.icone} size={40} color="#0066cc" style={styles.icon} />
-                <Text style={styles.diplomeTitle}>{diplome.titre}</Text>
-                <Text style={styles.diplomeDuree}>{diplome.duree}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
+          <SectionTitle title="NOS DIPLÔMES" />
+          <NosDiplomes />
+        </View>
+        <View>
+          <SectionTitle title=" Objectif de l'école" />
+          <Text style={styles.moreText}>
+          Dispenser une formation de qualité aux participants motivés par une volonté d'évoluer dans leur carrière professionnelle.
+          Assurer des formations dans des filières sélectives et répondant aux besoins des entreprises.
+          </Text>
+          <Image source={image3} resizeMode="contain" alt='objectif' style={styles.objectifImage} />
+          <ObjectifCard />
         </View>
       </View>
     </ScrollView>
@@ -121,50 +117,27 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
   },
   moreButton: {
-    backgroundColor: '#fe5e20',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    backgroundColor: '#f5f5f5',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
     borderRadius: 8,
-  },
-  moreButtonText: {
-    color: '#ffffff',
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  CardInform: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
     marginTop: 10,
   },
-  diplomeCard: {
-    width: '48%',
-    backgroundColor: '#F0FDFA',
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 16,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+  moreButtonPressed: {
+    backgroundColor: '#0EB582',
   },
-  diplomeCardHover: {
-    backgroundColor: '#ddd',
-  },
-  diplomeTitle: {
-    fontSize: 14,
-    fontWeight: 'bold',
+  moreButtonText: {
     color: '#333333',
-    textAlign: 'center',
+    fontFamily: 'Poppins-SemiBold',
+    fontSize: 14,
   },
-  diplomeDuree: {
-    fontSize: 12,
-    color: '#666666',
-    marginTop: 4,
+  moreButtonTextPressed: {
+    color: '#ffffff',
   },
-  icon: {
-    marginBottom: 10,
+  objectifImage: {
+    width: '100%',
+    height: 200,
+    borderRadius: 12,
   },
 });
 

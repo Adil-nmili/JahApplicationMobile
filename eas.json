@@ -10,7 +10,8 @@
       "android": {
         "gradleCommand": ":app:assembleDebug",
         "buildType": "apk"
-      }
+      },
+      "workflow": "managed",
     },
     "preview": {
       "distribution": "internal",
@@ -21,8 +22,9 @@
     "production": {
       "autoIncrement": true,
       "android": {
-        "buildType": "app-bundle"
-      }
+        "buildType": "apk"
+      },
+      "workflow":"managed"
     }
   },
   "submit": {

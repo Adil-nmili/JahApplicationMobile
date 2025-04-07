@@ -4,6 +4,7 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from 'rea
 import Aboutslider from '../components/Aboutslider';
 import Albums from '../components/Albums';
 import SectionTitle from '../components/SectionTitle';
+import Footer from '../components/Footer';
 // import image from '../../assets/images/acc.jpg'
 export default function AproposNous() {
   const [showMoreFrench, setShowMoreFrench] = useState(false);
@@ -100,6 +101,7 @@ export default function AproposNous() {
         </Text>
       </View>
       <Albums />
+      <Footer />
     </ScrollView>
   );
 }

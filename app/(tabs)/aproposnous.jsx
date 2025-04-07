@@ -101,7 +101,7 @@ export default function AproposNous() {
         </Text>
       </View>
       <Albums />
-      <Footer />
+      <Footer/>
     </ScrollView>
   );
 }

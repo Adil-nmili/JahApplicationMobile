@@ -15,12 +15,14 @@
     "preview": {
       "distribution": "internal",
       "android": {
+        "gradleCommand": ":app:assembleDebug",
         "buildType": "apk"
       }
     },
     "production": {
       "autoIncrement": true,
       "android": {
+        "gradleCommand": ":app:bundleRelease",
         "buildType": "app-bundle"
       }
     }
